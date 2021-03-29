@@ -20,7 +20,8 @@ APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
 
 (
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
-    mv "${BUILD_DIR}" "${STAGE}/monorepo" &&
+    mkdir -p "${STAGE}/monorepo" &&
+    mv "${BUILD_DIR}"/* "${STAGE}/monorepo" &&
     rm -rf "${BUILD_DIR}"/* &&
     mv "${STAGE}/$(basename "$APP_BASE")"/* "${BUILD_DIR}" &&
     mv "${STAGE}/monorepo" "${BUILD_DIR}" &&
