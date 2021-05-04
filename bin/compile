@@ -42,7 +42,7 @@ FILE="${BUILD_DIR}/elm.json"
 
 if [ -f "$FILE" ]; then
     echo "Rewriting $FILE" | indent
-    sed "s|\.\.|$BUILD_DIR/monorepo|" $FILE
+    sed -i "s|\.\.|$BUILD_DIR/monorepo|" $FILE
 else
     echo "Skipped rewriting $FILE as it does not exist" | indent
 fi
