@@ -35,11 +35,14 @@ fi
 
 echo "Copied ${APP_BASE} to root of app successfully" | indent
 
+
 # Elm 0.19 hacks
-FILE=elm.json
+
+FILE="${APP_BASE}/elm.json"
 
 if [ -f "$FILE" ]; then
-    echo "$FILE exists" | indent
+    echo "Rewriting $FILE" | indent
+    sed "s|\.\.|$BUILD_DIR/monorepo|" $FILE
 else
     echo "Skipped rewriting $FILE as it does not exist" | indent
 fi
