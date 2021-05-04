@@ -39,5 +39,7 @@ echo "Copied ${APP_BASE} to root of app successfully" | indent
 FILE=elm.json
 
 if [ -f "$FILE" ]; then
-    echo "$FILE exists." | indent
+    echo "$FILE exists" | indent
+else
+    echo "Skipped rewriting $FILE as it does not exist" | indent
 fi
